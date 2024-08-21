@@ -20,6 +20,7 @@ import com.example.diary.ui.theme.Pink80
 
 @Composable
 fun AddButton(
+    modifier : Modifier,
     onclick : () ->Unit
 ) {
     IconButton(
@@ -41,8 +42,8 @@ fun AddButton(
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun check() {
-    AddButton({})
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun check() {
+//    AddButton({})
+//}

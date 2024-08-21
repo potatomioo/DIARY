@@ -1,5 +1,6 @@
 package com.example.diary.CRUD
 
+import android.provider.ContactsContract.CommonDataKinds.Note
 import com.example.diary.Notes
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -24,16 +25,16 @@ fun addNote(note: Notes){
 }
 
 fun getList(
-    NameList : MutableList<String>
+    NameList : MutableList<Notes>
 ){
     db.collection("notes")
         .get()
         .addOnSuccessListener { ref->
             NameList.clear()
             for(doc in ref){
-                val Fname = doc.getString("first")?:"Unknown"
-                val Lname = doc.getString("last")?:"Unknown"
-                NameList.add("${Fname} ${Lname}")
+                val Title = doc.getString("Title")?:"Unknown"
+                val note = doc.getString("note")?:"Unknown"
+                NameList.add()
             }
         }
         .addOnFailureListener{e->
