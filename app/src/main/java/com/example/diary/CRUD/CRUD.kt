@@ -30,14 +30,26 @@ fun getList(
     db.collection("notes")
         .get()
         .addOnSuccessListener { ref->
-            NameList.clear()
             for(doc in ref){
                 val Title = doc.getString("Title")?:"Unknown"
                 val note = doc.getString("note")?:"Unknown"
-                NameList.add()
+                val noteId = doc.id
+                val notes = Notes(noteId,Title,note)
+                NameList.add(notes)
             }
         }
         .addOnFailureListener{e->
             println("Falure ${e}")
+        }
+}
+
+fun deleteNote(id : String){
+    val ref = db.collection("notes").document(id)
+    ref.delete()
+        .addOnSuccessListener {
+            println("Note deleted successfully")
+        }
+        .addOnFailureListener { e ->
+            println("Error deleting note: $e")
         }
 }

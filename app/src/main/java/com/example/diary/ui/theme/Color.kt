@@ -19,3 +19,6 @@ val Yellowish = Color(0xBF7C7B59)
 val Greenish = Color(0xFF6DCC53)
 val Peach = Color(0xBF4B6D4F)
 
+
+
+val AddButton = Color(0xB7494C50)

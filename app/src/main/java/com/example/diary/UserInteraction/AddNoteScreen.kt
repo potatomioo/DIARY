@@ -72,7 +72,7 @@ fun AddNoteScreen(
                 onClick = {
                     addNote(
                         note = Notes(
-                            title, content
+                            "",title, content
                         )
                     )
                     navController.navigate("HomeScreen")
